@@ -1,0 +1,48 @@
+POST /api/v1/tasks
+Creates a new task in a project.
+Request Headers
+Authorization (required): Bearer token that identifies the user. Example: Bearer abc123
+Content-Type (required): Must be application/json
+
+Request Parameters
+
+Path parameters: None
+Query parameters: None
+
+Body parameters:
+title (string, required): The name of the task. Example: "Design login page"
+description (string, optional): More details about the task.
+assignee_id (integer, required): The ID of the user the task is assigned to.
+due_date (string, required): The due date in YYYY-MM-DD format.
+priority (string, required): The priority level. Must be one of: low, medium, high.
+
+Example Request Body
+
+{
+  "title": "Design login page",
+  "description": "Create a mockup for the login screen.",
+  "assignee_id": 42,
+  "due_date": "2026-12-05",
+  "priority": "high"
+}
+
+Example Success Response (201 Created)
+
+{
+  "id": 1001,
+  "title": "Design login page",
+  "description": "Create a mockup for the login screen.",
+  "assignee_id": 42,
+  "due_date": "2026-12-05",
+  "priority": "high",
+  "status": "open",
+  "created_at": "2026-11-24T09:30:00Z"
+}
+
+Response Codes
+
+201 Created: The task was created successfully.
+400 Bad Request: The request body is invalid. For example, title is missing, due_date is not in YYYY-MM-DD format, or priority is not low, medium, or high.
+401 Unauthorized: The Authorization header is missing, or the token is invalid or expired.
+404 Not Found: The user in assignee_id does not exist.
+500 Internal Server Error: Something went wrong on the server. Try again later.

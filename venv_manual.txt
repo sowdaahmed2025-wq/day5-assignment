@@ -1,0 +1,40 @@
+Creating and Activating a Python Virtual Environment
+A virtual environment is a separate folder that keeps the packages for one project apart from the rest of your computer.
+
+Prerequisites
+- A Windows computer with an internet connection
+- Python 3.8 or later installed (check by typing python --version in Command Prompt)
+- Command Prompt open (press the Windows key, type cmd, and press Enter)
+
+Steps
+1. Type python --version and press Enter.
+   Expected result: A version number such as Python 3.13.17 appears.
+
+2. Type mkdir venv_practice and press Enter.
+   Expected result: No message appears, and a new prompt line is shown.
+
+3. Type cd venv_practice and press Enter.
+   Expected result: The prompt now ends with \venv_practice>.
+
+4. Type python -m venv myenv and press Enter.
+   Expected result: After a few seconds, a new prompt line appears with no error message.
+
+5. Type dir and press Enter.
+   Expected result: The list includes a folder named myenv.
+
+6. Type myenv\Scripts\activate and press Enter.
+   Expected result: (myenv) appears at the start of the prompt.
+
+7. Type pip install requests and press Enter.
+   Expected result: A line starting with "Successfully installed" appears. You can ignore any blue "notice" message about updating pip.
+
+8. Type pip list and press Enter.
+   Expected result: A table of packages appears that includes requests.
+
+Screenshot
+Screenshot description (after Step 7): A Command Prompt window showing the prompt (myenv) C:\Users\YourName\venv_practice>. Below the command pip install requests, the output ends with the line "Successfully installed" followed by the package names. This screenshot shows the reader that the virtual environment is active and the package installed correctly.
+
+Troubleshooting
+Problem: In Step 6, you see "running scripts is disabled on this system" and (myenv) does not appear.
+Cause: This happens in Windows PowerShell, which blocks activation scripts by default.
+Fix: Close PowerShell, open Command Prompt (press the Windows key, type cmd, and press Enter), go back to your project folder, and repeat Step 6.
